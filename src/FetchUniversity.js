@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-function FetchData(){
+function FetchData({props}){
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +27,7 @@ function FetchData(){
       return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
     } else {
       return (<div>{
-        items.map((item) => <Row className="mt-2 mb-2"><Col><span className = "pr-2"><input type="radio" value={ item.id} className="form-group" name="university" /></span>{ item.name}
+        items.map((item) => <Row className="mt-2 mb-2"><Col><span className = "pr-2"><input type="radio" value={ item.id} className="form-group" name="university"/></span>{ item.name}
        </Col></Row> )
        }</div>)
     }

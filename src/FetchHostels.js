@@ -1,66 +1,71 @@
 import React,{useEffect, useState} from 'react';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Card} from 'react-bootstrap';
 
-export default function FetchHostels(props){
+function FetchHostels({props}){
 
-    const [errors, setErrors] = useState(false);
-    const [data, setData] = useState([]);
-
-    const [hostels, allHostels] = useState([]);
-
-    useEffect(() => {
-       function fetchData(){                                                                                                                                                                                                                                                                                                                                
-         fetch('http://localhost:80/api/universities').then(res => res.json())
-         .then(result => setData(result))
-         .catch((error) => setErrors(error));
-    
-            }
-            fetchData();
-        });
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
-        function getAllHostels(){
-            fetch('http://localhost:1337/hostels').then(res => res.json()).then(result => allHostels(result))
-            .catch((error) => setErrors(error))
-        }
-        getAllHostels();
+        fetch('http://localhost:80/api/hostels').then(res => res.json())
+        .then(
+         (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+         (error) => {
+           setIsLoaded(true);
+           setError(error);
+       }
+     )
+   }, []);
 
-    });
+   if (error) {
+    return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Error: {error.message}</span></Col></Row>;
+    } else if (!isLoaded) {
+    return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
+    } 
+    else {
+        const data = <Row>{
+            items.map((item) => {
+                switch (props) {
+                    case String(item.universty_id):
+                        return (
+                        <Col sm={6}>
+                            <Card style={{ width: '18rem' }}>
+                             <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
+                                <Card.Body className="mt-4 text-muted bg-secondary">
+                                    <Card.Link href="#" className="text-light font-weight-bold">
+                                        <Card.Title >{item.hname} Hostel</Card.Title>
+                                    </Card.Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        );
+                    case 'all':
+                        return (
+                        <Col sm={6}>
+                            <Card style={{ width: '18rem' }}>
+                             <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
+                                <Card.Body className="mt-4 text-muted bg-secondary">
+                                    <Card.Link href="#" className="text-light font-weight-bold">
+                                        <Card.Title >{item.hname} Hostel</Card.Title>
+                                    </Card.Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        );                
+                    default:
+                        return <Col className="pr-2">No hostel is registered in this University.</Col>
+                    }
+                }
+            )
+            }</Row>;
 
-        var list_of_hostels = data.map((item) => {
-            if (props.value == item.name) {
-            return ( <Row>
-                <Col sm={4}>
-                    Image
-                </Col>
-                <Col sm={4}>
-                    {item.hostel.name}
-                </Col>
-                <Col sm={4}>
-                    {item.hostel.location}
-                </Col>
-            </Row>);
-            }
-        else if(props.value != item.name){
-         return ( <h2>No Hostels currently registered under {item.name} University</h2>)
-        }
-        else{
-            list_of_hostels = hostels.map((item) => 
-            <Row className="">
-            <Col sm={4}><span className = "pr-2"></span>{ item.name}</Col>
-            <Col sm={4}><span className = "pr-2"></span>{ item.name}</Col>
-            <Col sm={4}><span className = "pr-2"></span>{ item.name}</Col>
-            </Row>        
- 
-            );
- console.log(item.name)
-            } 
-
-
-         }
-    );
-    return list_of_hostels;
-
+        return data;
+    }
 }
+export default FetchHostels;
 
 
