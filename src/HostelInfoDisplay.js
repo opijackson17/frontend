@@ -19,7 +19,7 @@ function HostelInfoDisplay({props}){
            setError(error);
        }
      )
-   }, []);
+   });
 
    if (error) {
     return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Error: {error.message}</span></Col></Row>;
