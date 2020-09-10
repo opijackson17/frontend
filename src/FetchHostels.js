@@ -36,7 +36,7 @@ function FetchHostels({props}){
                             <Card style={{ width: '18rem' }}>
                              <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
                                 <Card.Body className="mt-4 text-muted bg-secondary">
-                                    <Card.Link href="#" className="text-light font-weight-bold">
+                                    <Card.Link href={item.id} className="text-light font-weight-bold">
                                         <Card.Title >{item.hname} Hostel</Card.Title>
                                     </Card.Link>
                                 </Card.Body>
@@ -49,7 +49,7 @@ function FetchHostels({props}){
                             <Card style={{ width: '18rem' }}>
                              <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
                                 <Card.Body className="mt-4 text-muted bg-secondary">
-                                    <Card.Link href="#" className="text-light font-weight-bold">
+                                    <Card.Link href={item.id} className="text-light font-weight-bold">
                                         <Card.Title >{item.hname} Hostel</Card.Title>
                                     </Card.Link>
                                 </Card.Body>
@@ -57,7 +57,7 @@ function FetchHostels({props}){
                         </Col>
                         );                
                     default:
-                        return <Col className="pr-2">No hostel is registered in this University.</Col>
+                        return (<Col className="pr-2">No hostel is registered in this University.</Col>);
                     }
                 }
             )

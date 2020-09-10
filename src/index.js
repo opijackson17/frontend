@@ -1,6 +1,7 @@
 import React from 'react';
 import App from './App';
 import Terms from './Terms';
+import Hostel from './Hostel';
 import Privacy from './Privacy';
 import AboutUs from './AboutUs';
 import Contact from './Contacts';
@@ -17,6 +18,7 @@ const routing =  (
       <Route path = "/contact" component = {Contact}/>
       <Route path = "/privacy" component = {Privacy}/>
       <Route path = "/terms" component = {Terms}/>
+      <Route path = "/:id" component = {Hostel}/>
     </Switch>
   </Router>
 );
