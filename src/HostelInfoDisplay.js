@@ -35,7 +35,7 @@ function HostelInfoDisplay({props}){
                       <Col sm={2} className = "d-inline text-uppercase font-weight-bold text-info text-left" style={{fontSize: 35}}>{items.type}
                       </Col>
                     </Row>
-                    <Row><Col sm={8}>{items.description}</Col><Col sm={4}>Kikoni</Col></Row>                  
+                    <Row><Col sm={8}>{items.description}</Col><Col sm={4}>{items.location}</Col></Row>                  
                     </Container>
 
           
