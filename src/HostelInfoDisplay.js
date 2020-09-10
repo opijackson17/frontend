@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 
-// function someThing(){
-//     return (<Row><Col sm={8}>{allData.description}</Col><Col sm={4}>Kikoni</Col></Row>);
-// }
-
 function HostelInfoDisplay({props}){
 
     const [error, setError] = useState(null);
@@ -12,7 +8,7 @@ function HostelInfoDisplay({props}){
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:80/api/allhostels').then(res => res.json())
+        fetch('http://localhost:80/api/ahostel/'+props).then(res => res.json())
         .then(
          (result) => {
           setIsLoaded(true);
@@ -31,20 +27,17 @@ function HostelInfoDisplay({props}){
     return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
     } 
     else {
-      let filteredArray, result =null;
-      filteredArray= items.filter( (allData) => String(allData.id) === props) 
-      filteredArray.map(item => {
-        console.log(item);
+      let result =null;
         result = <Container>
                     <Row className="shadow-none p-3 mb-5 bg-light rounded">
-                      <Col sm={10} className = "d-inline text-uppercase font-weight-bold" style={   {fontSize: 35}}>{item.hname} hostel
+                      <Col sm={10} className = "d-inline text-uppercase font-weight-bold" style={   {fontSize: 35}}>{items.hname} hostel
                       </Col>
-                      <Col sm={2} className = "d-inline text-uppercase font-weight-bold text-info text-left" style={{fontSize: 35}}>{item.type}
+                      <Col sm={2} className = "d-inline text-uppercase font-weight-bold text-info text-left" style={{fontSize: 35}}>{items.type}
                       </Col>
                     </Row>
-                  </Container> 
-            }
-        )
+                    <Row><Col sm={8}>{items.description}</Col><Col sm={4}>Kikoni</Col></Row>                  
+                    </Container>
+
           
         return result;
     }
