@@ -18,7 +18,7 @@ const routing =  (
       <Route path = "/contact" component = {Contact}/>
       <Route path = "/privacy" component = {Privacy}/>
       <Route path = "/terms" component = {Terms}/>
-      <Route path = "/:id" component = {Hostel}/>
+      <Route path = "/hostels/:id" component = {Hostel}/>
     </Switch>
   </Router>
 );

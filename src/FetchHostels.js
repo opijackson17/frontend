@@ -27,43 +27,40 @@ function FetchHostels({props}){
     return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
     } 
     else {
-        const data = <Row>{
-            items.map((item) => {
-                switch (props) {
-                    case String(item.universty_id):
-                        return (
-                        <Col sm={6}>
-                            <Card style={{ width: '18rem' }}>
-                             <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
-                                <Card.Body className="mt-4 text-muted bg-secondary">
-                                    <Card.Link href={item.id} className="text-light font-weight-bold">
-                                        <Card.Title >{item.hname} Hostel</Card.Title>
-                                    </Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        );
-                    case 'all':
-                        return (
-                        <Col sm={6}>
-                            <Card style={{ width: '18rem' }}>
-                             <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
-                                <Card.Body className="mt-4 text-muted bg-secondary">
-                                    <Card.Link href={item.id} className="text-light font-weight-bold">
-                                        <Card.Title >{item.hname} Hostel</Card.Title>
-                                    </Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        );                
-                    default:
-                        return (<Col className="pr-2">No hostel is registered in this University.</Col>);
-                    }
-                }
-            )
-            }</Row>;
+        let variable = null;
+        let filteredArray;
+        filteredArray = items.filter(item => String(item.universty_id) === props);
+        filteredArray.map(item => variable = 
+            <Row><Col sm={6}>
+                <Card style={{ width: '18rem' }}>
+                    <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
+                    <Card.Body className="mt-4 text-muted bg-secondary">
+                        <Card.Link href={"/hostels/"+item.id} className="text-light font-weight-bold">
+                            <Card.Title >{item.hname} Hostel</Card.Title>
+                        </Card.Link>
+                    </Card.Body>
+                </Card>
+            </Col></Row>
+        )
 
-        return data;
+        // items.map(item => {
+        //     switch (props) {
+        //         case 'all':
+        //             variable = <Row><Col sm={6}>
+        //                 <Card style={{ width: '18rem' }}>
+        //                     <img variant="top" src="../img/logo.png" alt={item.profileImage}/>
+        //                     <Card.Body className="mt-4 text-muted bg-secondary">
+        //                         <Card.Link href={"/hostels/"+item.id} className="text-light font-weight-bold">
+        //                             <Card.Title >{item.hname} Hostel</Card.Title>
+        //                         </Card.Link>
+        //                     </Card.Body>
+        //                 </Card>
+        //             </Col></Row>
+        //             break;
+        //         }
+        //     }
+        // )
+        return variable;
     }
 }
 export default FetchHostels;

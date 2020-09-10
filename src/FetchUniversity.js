@@ -27,8 +27,8 @@ function FetchData({props}){
       return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
     } else {
       return (<div>{
-        items.map((item) => <Row className="mt-2 mb-2"><Col><span className = "pr-2"><input type="radio" value={ item.id} className="form-group" name="university"/></span>{ item.name}
-       </Col></Row> )
+        items.map((item) => item!=={} ? <Row className="mt-2 mb-2"><Col><span className = "pr-2"><input type="radio" value={ item.id} className="form-group" name="university"/></span>{ item.name}
+       </Col></Row> : <Row className="mt-2 mb-2"><Col className = "pr-2">No University registered</Col></Row> )
        }</div>)
     }
 }
