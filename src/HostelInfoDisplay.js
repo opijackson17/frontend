@@ -87,8 +87,6 @@ function HostelInfoDisplay({props}){
                       </Row>
                       <Row className="font-weight-bold shadow-none p-3 mb-5 bg-info text-center" style={{fontSize: 20}}><Col sm={6} className="border border-primary bg-light">{items.mobile}</Col><Col sm={6} className="border border-primary bg-light">{items.email}</Col></Row>                 
                     </Container>
-
-          
         return result;
     }
 
