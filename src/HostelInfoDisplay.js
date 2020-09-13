@@ -75,7 +75,7 @@ function HostelInfoDisplay({props}){
                       </Carousel>
                       </Col>
                     </Row>
-                    <Row className="pt-4 pb-4"><Col sm={8}> <span dangerouslySetInnerHTML={{__html:items.description}}></span></Col><Col sm={4}>{items.location}</Col></Row>
+                    <Row className="pt-0 pb-4"><Col sm={8} className="mark"> <span dangerouslySetInnerHTML={{__html:items.description}}></span></Col><Col sm={4} className="mark">{items.location}</Col></Row>
                     <Row>
                       <Col sm={6} className="border border-secondary">
                         <h4 className="text-uppercase text-muted font-weight-bold">Rooms and Fare</h4>
@@ -85,7 +85,7 @@ function HostelInfoDisplay({props}){
                         <span dangerouslySetInnerHTML={{__html:items.service}}></span>                        
                       </Col>
                       </Row>
-                      <Row className="font-weight-bold shadow-none p-3 mb-5 bg-info text-center" style={{fontSize: 20}}><Col sm={6} className="border border-primary bg-light">{items.mobile}</Col><Col sm={6} className="border border-primary bg-light">{items.email}</Col></Row>                 
+                      <Row className="font-weight-bold shadow-none p-3 mb-2 bg-info text-center" style={{fontSize: 20}}><Col sm={6} className="border border-primary bg-light">{items.mobile}</Col><Col sm={6} className="border border-primary bg-light">{items.email}</Col></Row>                 
                     </Container>
         return result;
     }

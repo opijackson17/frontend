@@ -7,7 +7,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 function Hostel(hostelId){
         return (
     <Container>
-            <Header/>
+            <Header />
             <HostelInfoDisplay props={hostelId.match.params.id}/>
         <Row>
             <Col sm={12}>
