@@ -15,7 +15,7 @@ function App() {
       <Row>
         <Col sm={3} className = "overflow-auto">
     <caption className = "d-inline text-uppercase font-weight-bold">Universities: {radio}</caption>
-            <div onChange={(e)=>{setRadio(e.target.value)}}>
+            <div onChange={(e)=>{setRadio(e.target.value)}} className="shadow-sm p-3 mb-5 bg-white">
               {/* <Row className="mt-2 mb-2">
                 <Col>
                   <span className = "pr-2"><input type="radio" value="all" className="form-group" name="university" defaultChecked/></span>All

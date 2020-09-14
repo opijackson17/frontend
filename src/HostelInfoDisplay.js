@@ -27,15 +27,15 @@ function HostelInfoDisplay({props}){
     return <Row className="mt-2 mb-2"><Col><span className = "pr-2">Loading...</span></Col></Row>;
     } 
     else {
-      let result =null;
-        result = <Container>
+      let variable =null;
+        variable = <Container>
                     <Row className="shadow-sm p-2 mb-2 bg-light rounded">
                       <Col sm={10} className = "d-inline text-uppercase font-weight-bold" style={   {fontSize: 35}}>{items.hname} hostel
                       </Col>
                       <Col sm={2} className = "d-inline text-uppercase font-weight-bold text-info text-left" style={{fontSize: 35}}>{items.type}
                       </Col>
                     </Row>
-                    <Row className="bg-light">
+                    <Row className="bg-info">
                       <Col className="border border-light">
                       <Carousel>
                         <Carousel.Item>
@@ -45,8 +45,8 @@ function HostelInfoDisplay({props}){
                             alt="First slide"
                           />
                           <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h3 className="text-capitalize">First slide label</h3>
+                            <p>{items.hname}</p>
                           </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -57,8 +57,8 @@ function HostelInfoDisplay({props}){
                           />
 
                           <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3 className="text-capitalize">Second slide label</h3>
+                            <p>{items.hname}</p>
                           </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -68,8 +68,8 @@ function HostelInfoDisplay({props}){
                             alt="Third slide"
                           />
                           <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h3 className="text-capitalize">Third slide label</h3>
+                            <p>{items.hname}</p>
                           </Carousel.Caption>
                         </Carousel.Item>
                       </Carousel>
@@ -92,7 +92,7 @@ function HostelInfoDisplay({props}){
                       </Row>
                       <Row className="font-weight-bold shadow-none p-3 mb-2 bg-info text-center" style={{fontSize: 20}}><Col sm={6} className="border border-primary bg-light">{items.mobile}</Col><Col sm={6} className="border border-primary bg-light">{items.email}</Col></Row>                 
                     </Container>
-        return result;
+        return variable;
     }
 
 }

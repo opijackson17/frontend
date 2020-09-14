@@ -10,7 +10,7 @@ function Footer(){
                     <ul className = "list-unstyled">
                         <li>
                             {/* <a href="/" className = "text-capitalize text-decoration-none">HOSTEL ADVISOR</a> */}
-                            <img src="../img/logo.png" alt = "H|A" style={{width:"30%"}}></img>
+                            <a href="/"><img src="../img/logo.png" alt = "H|A" style={{width:"30%"}}></img></a>
                         </li>
                     </ul>
                 </Col>
