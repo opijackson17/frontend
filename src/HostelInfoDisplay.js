@@ -81,12 +81,12 @@ function HostelInfoDisplay({props}){
                         <h4 className="text-uppercase text-muted font-weight-bold">Rooms and Fare</h4>
                         <dl>
                           <dt className="text-uppercase">{items.room +' room: ugx ' +items.fare}</dt>
-                          <dd className="pl-2" dangerouslySetInnerHTML={{__html:items.rdescription}}>
+                          <dd className="pl-2 py-auto" dangerouslySetInnerHTML={{__html:items.rdescription}}>
                           </dd>
                         </dl>
                       </Col>
                       <Col sm={6} className="border border-secondary">
-                        <h4 className="text-uppercase text-muted font-weight-bold">Services</h4>
+                        <h4 className="text-uppercase py-auto text-muted font-weight-bold">Services</h4>
                         <span dangerouslySetInnerHTML={{__html:items.service}}></span>                        
                       </Col>
                       </Row>
